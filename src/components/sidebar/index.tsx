@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+
 import {
   IconButton,
   Avatar,
@@ -7,9 +8,7 @@ import {
   Flex,
   HStack,
   VStack,
-  Icon,
   useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
   Text,
@@ -22,32 +21,15 @@ import {
   MenuItem,
   MenuList,
 } from '@chakra-ui/react';
+
 import {
-  FiHome,
   FiMenu,
   FiChevronDown,
 } from 'react-icons/fi';
 
-import {
-  BsCart,
-  BsBag
-} from 'react-icons/bs';
-import { IconType } from 'react-icons';
-import { ReactText } from 'react';
-import { Link as LinkRouter } from "react-router-dom";
+import { Content } from './content';
 
-interface LinkItemProps {
-  name: string;
-  icon: IconType;
-  path: string;
-}
-const LinkItems: Array<LinkItemProps> = [
-  { name: 'Dashboard', icon: FiHome, path: '/' },
-  { name: 'Pedidos', icon: BsCart, path: '/orders'},
-  { name: 'Produtos', icon: BsBag, path: '/products' },
-];
-
-export default function Sidebar({
+export default function SidebarWithHeader({
   children,
 }: {
   children: ReactNode;
@@ -101,49 +83,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      {LinkItems.map((link) => (
-        <LinkRouter key={link.name} to={link.path}>
-          <NavItem key={link.name} icon={link.icon}>
-            {link.name}
-          </NavItem>
-        </LinkRouter>
-      ))}
+      <Content></Content>
     </Box>
-  );
-};
-
-interface NavItemProps extends FlexProps {
-  icon: IconType;
-  children: ReactText;
-}
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
-  return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
-      <Flex
-        align="center"
-        p="4"
-        mx="4"
-        borderRadius="lg"
-        role="group"
-        cursor="pointer"
-        _hover={{
-          bg: 'cyan.400',
-          color: 'white',
-        }}
-        {...rest}>
-        {icon && (
-          <Icon
-            mr="4"
-            fontSize="16"
-            _groupHover={{
-              color: 'white',
-            }}
-            as={icon}
-          />
-        )}
-        {children}
-      </Flex>
-    </Link>
   );
 };
 
@@ -210,9 +151,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             <MenuList
               bg={useColorModeValue('white', 'gray.900')}
               borderColor={useColorModeValue('gray.200', 'gray.700')}>
-              <MenuItem>Profile</MenuItem>
+              <MenuItem>Perfil</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem>Sair</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
