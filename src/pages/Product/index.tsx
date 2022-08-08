@@ -1,5 +1,12 @@
 import { Title } from "../../components/common/title/Title";
+import Sidebar from "../../components/sidebar";
 
 export function Product() {
-  return <Title text="Produtos"></Title>
+  return (
+  <Sidebar>
+    <div>
+      <Title text="Produtos"></Title>
+    </div>
+  </Sidebar>
+ );
 }

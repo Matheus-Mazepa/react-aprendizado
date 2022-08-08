@@ -3,7 +3,9 @@ import { AppRoutes } from "./Routes"
 function App() {
 
   return (
-    <AppRoutes />
+    <div>
+       <AppRoutes />
+    </div>
   )
 }
 

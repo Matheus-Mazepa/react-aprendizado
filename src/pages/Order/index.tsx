@@ -1,5 +1,12 @@
 import { Title } from "../../components/common/title/Title";
+import Sidebar from "../../components/sidebar";
 
 export function Order() {
-  return <Title text="Pedidos"></Title>
+  return (
+  <Sidebar>
+    <div>
+      <Title text="Pedidos"></Title>
+    </div>
+  </Sidebar>
+ );
 }
