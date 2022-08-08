@@ -1,5 +1,6 @@
 import { TitleProps } from "./title-props";
+import { Heading } from '@chakra-ui/react'
 
 export function Title({text}: TitleProps) {
-  return <h1>{text}</h1>;
+  return <Heading>{text}</Heading>;
 }
