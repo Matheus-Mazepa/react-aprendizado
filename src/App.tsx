@@ -1,11 +1,12 @@
 import { AppRoutes } from "./Routes"
+import { AppProvider } from "./context";
 
 function App() {
 
   return (
-    <div>
+    <AppProvider>
        <AppRoutes />
-    </div>
+    </AppProvider>
   )
 }
 
