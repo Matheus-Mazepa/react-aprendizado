@@ -8,7 +8,6 @@ interface AuthContextData {
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-//@ts-ignore
 const AuthProvider: React.FC = ({ children }) => {
     const [authenticated, setAuthenticated] = useState(false);
 
