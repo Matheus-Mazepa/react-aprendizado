@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, {createContext, ReactNode, useContext, useState} from 'react';
 
 interface AuthContextData {
     authenticated: boolean;
@@ -6,9 +6,13 @@ interface AuthContextData {
     signOut(): void;
 }
 
+interface AuthProviderData {
+    children?: ReactNode
+}
+
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-const AuthProvider: React.FC = ({ children }) => {
+const AuthProvider: React.FC = ({ children }: AuthProviderData) => {
     const [authenticated, setAuthenticated] = useState(false);
 
     const signIn = () => {

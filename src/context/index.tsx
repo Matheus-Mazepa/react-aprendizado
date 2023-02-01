@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 
 import { AuthProvider } from './AuthContext';
 
-export const AppProvider: React.FC = ({ children }) => (
+interface AuthProviderData {
+  children?: ReactNode
+}
+
+export const AppProvider: React.FC = ({ children }: AuthProviderData) => (
   <AuthProvider>
       { children }
   </AuthProvider>
